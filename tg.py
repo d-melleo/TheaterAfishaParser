@@ -6,7 +6,7 @@ from aiogram.utils.formatting import as_marked_list, Bold, Text
 from aiogram.types import InlineKeyboardButton
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
-from .environment_vars import BOT_TOKEN, RECIPIENTS
+from environment_vars import BOT_TOKEN, RECIPIENTS
 
 
 bot = Bot(token=BOT_TOKEN)
@@ -64,13 +64,14 @@ def message_content(show, seats) -> Dict[str, Any]:
     # Link button for the show
     keyboard = InlineKeyboardBuilder()
     keyboard.add(InlineKeyboardButton(text="Посилання", url=show['url']))
-    msg_content['reply_markup'] = keyboard
+    msg_content['reply_markup'] = keyboard.as_markup()
 
     return msg_content
 
 
 async def send_telegram(show, seats) -> None:
     for chat_id in RECIPIENTS:
+        print(chat_id)
         await bot.send_message(
             chat_id=chat_id,
             **message_content(show, seats)
