@@ -248,7 +248,7 @@ async def start_parsing(url: str = URL_AFISHA) -> None:
                 logging.info(f"\n[{show_r_code}] {show}")
 
                 # Pause between parsing through teh list of shows
-                # await asyncio.sleep(random.randint(10, 60))
+                await asyncio.sleep(random.randint(10, 60))
 
             # Pause between parsing the Afisha again
             await asyncio.sleep(random.randint(5*60, 15*60))
