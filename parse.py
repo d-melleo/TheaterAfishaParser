@@ -13,8 +13,7 @@ from tg import send_telegram
 
 
 # Performances filter
-# DESIRED_SHOWS = ["Конотопська відьма"]
-DESIRED_SHOWS = ["Комедія на руїнах"]
+DESIRED_SHOWS = ["Конотопська відьма"]
 
 # Day of weeek filter
 DAYS_OF_WEEK = None
